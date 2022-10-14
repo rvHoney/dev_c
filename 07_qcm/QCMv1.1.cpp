@@ -209,8 +209,6 @@ int main()
         cout << "1) " << questionnaire[i].getChoix1() << endl;
         cout << "2) " << questionnaire[i].getChoix2() << endl;
         cout << "3) " << questionnaire[i].getChoix3() << endl;
-
-        cout << "---" << questionnaire[i].getNbChoix() << endl;
         if(questionnaire[i].getNbChoix() == 4)
             cout << "4) " << questionnaire[i].getChoix4() << endl;
 
