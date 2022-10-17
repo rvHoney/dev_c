@@ -50,11 +50,18 @@ public:
     {
         return this->choix1;
     }
+
+    // Accesseur de la réponse du choix 1
+    bool getRep1()
+    {
+        return this->choix1Valide;
+    }
     
     // Mutateur de choix 1
-    void setChoix1(string leChoix1, bool laRep1)
+    void setChoix1(string leChoix, bool laRep=false)
     {
-        this->choix1 = leChoix1;
+        this->choix1 = leChoix;
+        this->choix1Valide = laRep;
     }
     
     // Accesseur du choix 2
@@ -63,10 +70,17 @@ public:
         return this->choix2;
     }
     
-    // Mutateur de choix2
-    void setChoix2(string leChoix2, bool laRep2)
+    // Accesseur de la réponse du choix 2
+    bool getRep2()
     {
-        this->choix2 = leChoix2;
+        return this->choix2Valide;
+    }
+
+    // Mutateur de choix2
+    void setChoix2(string leChoix, bool laRep=false)
+    {
+        this->choix2 = leChoix;
+        this->choix2Valide = laRep;
     }
     
     // Accesseur du choix 3
@@ -75,9 +89,17 @@ public:
         return this->choix3;
     }
     
-    void setChoix3(string leChoix3, bool laRep3)
+    // Accesseur de la réponse du choix 3
+    bool getRep3()
     {
-        this->choix3 = leChoix3;
+        return this->choix3Valide;
+    }
+
+    // Mutateur du choix 3
+    void setChoix3(string leChoix, bool laRep=false)
+    {
+        this->choix3 = leChoix;
+        this->choix3Valide = laRep;
     }
 
     // Accesseur du choix 4
@@ -85,11 +107,18 @@ public:
     {
         return this->choix4;
     }
+
+    // Accesseur de la réponse du choix 4
+    bool getRep4()
+    {
+        return this->choix4Valide;
+    }
     
     // Mutateur du choix 4
-    void setChoix4(string leChoix4, bool laRep4)
+    void setChoix4(string leChoix, bool laRep=false)
     {
-        this->choix4 = leChoix4;
+        this->choix4 = leChoix;
+        this->choix4Valide = laRep;
     }
     
 private:
@@ -128,56 +157,52 @@ int main()
     Question questionnaire[nbQuestion];
     
     questionnaire[0].setConsigne("Quel est le mode de comptage utilisé en informatique?");
-    questionnaire[0].setChoix1("Base 1", false);
+    questionnaire[0].setChoix1("Base 1");
     questionnaire[0].setChoix2("Base 2", true);
-    questionnaire[0].setChoix3("Base 10", false);
+    questionnaire[0].setChoix3("Base 10");
 
     questionnaire[1].setConsigne("Les données entre la mémoire centrale et l'unité centrale de traitement transitent par...");
-    questionnaire[1].setChoix1("... les unités de stockage.", false);
+    questionnaire[1].setChoix1("... les unités de stockage.");
     questionnaire[1].setChoix2("... un système de bus de communication.", true);
-    questionnaire[1].setChoix3("... les périphériques d'entrée.", false);
-    questionnaire[1].setChoix4("... le périphérique parisien.", false);
+    questionnaire[1].setChoix3("... les périphériques d'entrée.");
+    questionnaire[1].setChoix4("... le périphérique parisien.");
 
     questionnaire[2].setConsigne("Quelle est la plus petite unité d'information manipulable par une machine numérique ?");
     questionnaire[2].setChoix1("bit", true);
-    questionnaire[2].setChoix2("byte", false);
-    questionnaire[2].setChoix3("octet", false);
+    questionnaire[2].setChoix2("byte");
+    questionnaire[2].setChoix3("octet");
 
     questionnaire[3].setConsigne("Un octet est composé de...");
     questionnaire[3].setChoix1("8 bits", true);
-    questionnaire[3].setChoix2("16 bits", false);
-    questionnaire[3].setChoix3("32 bits", false);
-    questionnaire[3].setChoix4("64 bits", false);
+    questionnaire[3].setChoix2("16 bits");
+    questionnaire[3].setChoix3("32 bits");
+    questionnaire[3].setChoix4("64 bits");
 
     questionnaire[4].setConsigne("Le langage C est un langage... (QCM)");
     questionnaire[4].setChoix1("... de programmation procédurale.", true);
     questionnaire[4].setChoix2("... compilé.", true);
-    questionnaire[4].setChoix3("... interprété.", false);
+    questionnaire[4].setChoix3("... interprété.");
 
     questionnaire[5].setConsigne("Une variable est...");
     questionnaire[5].setChoix1("... une zone en mémoire modifiable via son identificateur.", true);
-    questionnaire[5].setChoix2("... un identificateur de fonction.", false);
-    questionnaire[5].setChoix3("... une instruction conditionnelle.", false);
+    questionnaire[5].setChoix2("... un identificateur de fonction.");
+    questionnaire[5].setChoix3("... une instruction conditionnelle.");
 
     questionnaire[6].setConsigne("La déclaration d'une variable doit respecter le formalisme suivant :");
-    questionnaire[6].setChoix1("<identificateur> <type de base <=initialisation-opt>>, ...;", false);
-    questionnaire[6].setChoix2("<type de base> <identificateur <==initialisation-opt>>, ...;", false);
+    questionnaire[6].setChoix1("<identificateur> <type de base <=initialisation-opt>>, ...;");
+    questionnaire[6].setChoix2("<type de base> <identificateur <==initialisation-opt>>, ...;");
     questionnaire[6].setChoix3("<type de base> <identificateur <=initialisation-opt>>, ...;", true);
-    
-    // TODO: Hey man! Là tu dois initialiser les autres questions. Good luck!
     
     // Itération sur le tableaux de questions
     for(int i=0; i<nbQuestion; i++)
     {
         cout << questionnaire[i].getConsigne() << endl;
-        if(questionnaire[i].getChoix1() != "") cout << "1) " << questionnaire[i].getChoix1() << endl;
-        if(questionnaire[i].getChoix2() != "") cout << "2) " << questionnaire[i].getChoix2() << endl;
-        if(questionnaire[i].getChoix3() != "") cout << "3) " << questionnaire[i].getChoix3() << endl;
-        if(questionnaire[i].getChoix4() != "") cout << "4) " << questionnaire[i].getChoix4() << endl;
+        if(questionnaire[i].getChoix1() != "") cout << "1) " << questionnaire[i].getChoix1() << " | Rep -> " << questionnaire[i].getRep1() << endl;
+        if(questionnaire[i].getChoix2() != "") cout << "2) " << questionnaire[i].getChoix2() << " | Rep -> " << questionnaire[i].getRep2() << endl;
+        if(questionnaire[i].getChoix3() != "") cout << "3) " << questionnaire[i].getChoix3() << " | Rep -> " << questionnaire[i].getRep3() << endl;
+        if(questionnaire[i].getChoix4() != "") cout << "4) " << questionnaire[i].getChoix4() << " | Rep -> " << questionnaire[i].getRep4() << endl;
 
         cin >> input;
-
-
 
         /*
         // Comparaison de la saisie avec la réponse attendue.
@@ -197,13 +222,6 @@ int main()
     cout << endl;
     cout << "Vous avez eu " << points << " bonnes réponses sur " << nbQuestion << " questions. " << endl;
 
-        
-        // A toi de faire le reste du taf. Je suis en vacances pour deux semaines!!!
-        //
-        // TODO: Ce serait bien d'utiliser un cin pour récupérer la saisie mais j'ai pas
-        // pris le temps de le faire. A toi de jouer (google est ton ami ;) )...
-    
-    // TODO: Faudra aussi calculer la note finale et l'afficher
     // Have fun man! Moi je m'éclate à faire du surf pendant que tu codes!
 
     return 0;
