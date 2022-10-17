@@ -75,7 +75,7 @@ public:
         return this->choix3;
     }
     
-    void setChoix3(string leChoix3, bool laRep1)
+    void setChoix3(string leChoix3, bool laRep3)
     {
         this->choix3 = leChoix3;
     }
@@ -87,7 +87,7 @@ public:
     }
     
     // Mutateur du choix 4
-    void setChoix4(string leChoix4, bool laRep1)
+    void setChoix4(string leChoix4, bool laRep4)
     {
         this->choix4 = leChoix4;
     }
