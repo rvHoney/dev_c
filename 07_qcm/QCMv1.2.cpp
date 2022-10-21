@@ -260,25 +260,13 @@ int main()
         {
             cout << "Le choix 4 est-il juste ? (O/N)" << endl;
             cin >> input;
-            if(((input=="O") || (input=="o")) && (questionnaire[i].getRep4() == true))X
+            if(((input=="O") || (input=="o")) && (questionnaire[i].getRep4() == true))
                 temp_points++;
         }
         
         if(questionnaire[i].getNbReponses() == temp_points)
             points++;
 
-        /*
-        // Comparaison de la saisie avec la réponse attendue.
-        if(input==questionnaire[i].getReponse())
-            {
-                points++; // Ajout d'un point.
-                cout << "Bonne réponse :)" << endl; // Annonce du résultat.
-            }
-        else
-            cout << "Mauvaise réponse :c" << endl; // Annonce du résultat.
-
-        cout << endl; // Saut de ligne.
-        */
     }
 
     // Bilan du QCM.
