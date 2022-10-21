@@ -121,6 +121,18 @@ public:
         this->choix4Valide = laRep;
     }
     
+    // Accesseur du nombre de bonnes réponses.
+    int getNbReponses()
+    {
+        return this->reponses_valides;
+    }
+
+    // Mutateur du nombre de bonnes réponses.
+    void setNbReponses(int nbrep)
+    {
+        this->reponses_valides = nbrep;
+    }
+
 private:
     
     // Consigne à afficher
@@ -142,6 +154,9 @@ private:
     string choix4;
     bool choix4Valide = false;
 
+    // Réponses valides
+    int reponses_valides;
+
     // Index de la bonne réponse
     // TEMPORAIRE > int reponse;
 
@@ -151,44 +166,54 @@ private:
 int main()
 {
     const int nbQuestion = 7;
-    int input, points = 0;
+    int points, temp_points, errors;
+    string input;
     
+    points = temp_points = 0;
+
     // Création du formulaire sous forme d'un tableau C de questions
     Question questionnaire[nbQuestion];
     
     questionnaire[0].setConsigne("Quel est le mode de comptage utilisé en informatique?");
+    questionnaire[0].setNbReponses(1);
     questionnaire[0].setChoix1("Base 1");
     questionnaire[0].setChoix2("Base 2", true);
     questionnaire[0].setChoix3("Base 10");
 
     questionnaire[1].setConsigne("Les données entre la mémoire centrale et l'unité centrale de traitement transitent par...");
+    questionnaire[1].setNbReponses(1);
     questionnaire[1].setChoix1("... les unités de stockage.");
     questionnaire[1].setChoix2("... un système de bus de communication.", true);
     questionnaire[1].setChoix3("... les périphériques d'entrée.");
     questionnaire[1].setChoix4("... le périphérique parisien.");
 
     questionnaire[2].setConsigne("Quelle est la plus petite unité d'information manipulable par une machine numérique ?");
+    questionnaire[2].setNbReponses(1);
     questionnaire[2].setChoix1("bit", true);
     questionnaire[2].setChoix2("byte");
     questionnaire[2].setChoix3("octet");
 
     questionnaire[3].setConsigne("Un octet est composé de...");
+    questionnaire[3].setNbReponses(1);
     questionnaire[3].setChoix1("8 bits", true);
     questionnaire[3].setChoix2("16 bits");
     questionnaire[3].setChoix3("32 bits");
     questionnaire[3].setChoix4("64 bits");
 
     questionnaire[4].setConsigne("Le langage C est un langage... (QCM)");
+    questionnaire[4].setNbReponses(2);
     questionnaire[4].setChoix1("... de programmation procédurale.", true);
     questionnaire[4].setChoix2("... compilé.", true);
     questionnaire[4].setChoix3("... interprété.");
 
     questionnaire[5].setConsigne("Une variable est...");
+    questionnaire[5].setNbReponses(1);
     questionnaire[5].setChoix1("... une zone en mémoire modifiable via son identificateur.", true);
     questionnaire[5].setChoix2("... un identificateur de fonction.");
     questionnaire[5].setChoix3("... une instruction conditionnelle.");
 
     questionnaire[6].setConsigne("La déclaration d'une variable doit respecter le formalisme suivant :");
+    questionnaire[6].setNbReponses(1);
     questionnaire[6].setChoix1("<identificateur> <type de base <=initialisation-opt>>, ...;");
     questionnaire[6].setChoix2("<type de base> <identificateur <==initialisation-opt>>, ...;");
     questionnaire[6].setChoix3("<type de base> <identificateur <=initialisation-opt>>, ...;", true);
@@ -196,13 +221,51 @@ int main()
     // Itération sur le tableaux de questions
     for(int i=0; i<nbQuestion; i++)
     {
-        cout << questionnaire[i].getConsigne() << endl;
-        if(questionnaire[i].getChoix1() != "") cout << "1) " << questionnaire[i].getChoix1() << " | Rep -> " << questionnaire[i].getRep1() << endl;
-        if(questionnaire[i].getChoix2() != "") cout << "2) " << questionnaire[i].getChoix2() << " | Rep -> " << questionnaire[i].getRep2() << endl;
-        if(questionnaire[i].getChoix3() != "") cout << "3) " << questionnaire[i].getChoix3() << " | Rep -> " << questionnaire[i].getRep3() << endl;
-        if(questionnaire[i].getChoix4() != "") cout << "4) " << questionnaire[i].getChoix4() << " | Rep -> " << questionnaire[i].getRep4() << endl;
+        temp_points = 0;
+        system("clear");
 
-        cin >> input;
+        cout << questionnaire[i].getConsigne() << endl;
+        if(questionnaire[i].getChoix1() != "") cout << "1) " << questionnaire[i].getChoix1() << endl;
+        if(questionnaire[i].getChoix2() != "") cout << "2) " << questionnaire[i].getChoix2() << endl;
+        if(questionnaire[i].getChoix3() != "") cout << "3) " << questionnaire[i].getChoix3() << endl;
+        if(questionnaire[i].getChoix4() != "") cout << "4) " << questionnaire[i].getChoix4() << endl;
+
+        cout << "----- Votre réponse -----" << endl;
+
+        if(questionnaire[i].getChoix1() != "")
+        {
+            cout << "Le choix 1 est-il juste ? (O/N)" << endl;
+            cin >> input;
+            if(((input=="O") || (input=="o")) && (questionnaire[i].getRep1() == true))
+                temp_points++;
+        }
+
+        if(questionnaire[i].getChoix2() != "")
+        {
+            cout << "Le choix 2 est-il juste ? (O/N)" << endl;
+            cin >> input;
+            if(((input=="O") || (input=="o")) && (questionnaire[i].getRep2() == true))
+                temp_points++;
+        }
+
+        if(questionnaire[i].getChoix3() != "")
+        {
+            cout << "Le choix 3 est-il juste ? (O/N)" << endl;
+            cin >> input;
+            if(((input=="O") || (input=="o")) && (questionnaire[i].getRep3() == true))
+                temp_points++;
+        }
+
+        if(questionnaire[i].getChoix4() != "")
+        {
+            cout << "Le choix 4 est-il juste ? (O/N)" << endl;
+            cin >> input;
+            if(((input=="O") || (input=="o")) && (questionnaire[i].getRep4() == true))X
+                temp_points++;
+        }
+        
+        if(questionnaire[i].getNbReponses() == temp_points)
+            points++;
 
         /*
         // Comparaison de la saisie avec la réponse attendue.
