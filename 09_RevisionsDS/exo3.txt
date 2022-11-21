@@ -1,0 +1,12 @@
+DECLARATION DES VARIABLES
+nb, i : Entier
+
+DEBUT ALGO
+
+    LIRE nb
+
+    POUR i VARIANT DE nb+1 A nb+10 :
+        AFFICHER i
+    FIN POUR
+
+FIN ALGO
