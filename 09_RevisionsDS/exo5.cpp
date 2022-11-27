@@ -3,13 +3,17 @@ using namespace std;
 
 int main()
 {
-    int nb, res;
+    int nombre, resultat = 0;
 
-    cin >> nb;
-    for(int i = 1; i<=nb; i++)
-        {
-            res += i;
-            cout << i << " + ";
-        }
-    cout << "= " << res << endl;
+    cout << "Saisissez un nombre :" << endl;
+    cin >> nombre;
+
+    for (int i = 1; i<nombre; i++ )
+    {
+        resultat = resultat + i;
+        cout << i << " + ";
+    }
+    cout << nombre << " = " << resultat+nombre;
+
+    return 0;
 }
