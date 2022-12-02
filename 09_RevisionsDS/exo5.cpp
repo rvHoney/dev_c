@@ -9,7 +9,6 @@ int main()
     for(int i = 1; i<=nb; i++)
         {
             res += i;
-            cout << i << " + ";
         }
-    cout << "= " << res << endl;
+    cout << res << endl;
 }
