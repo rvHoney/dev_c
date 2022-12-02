@@ -1,0 +1,12 @@
+DECLARATION DES VARIABLES
+nb, i : Entier
+
+DEBUT ALGO
+
+    LIRE nb
+
+    POUR i VARIANT DE 1 A 10 :
+        AFFICHER nb * i = nb*1
+    FIN POUR
+
+FIN ALGO

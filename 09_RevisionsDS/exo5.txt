@@ -1,0 +1,14 @@
+DECLARATION DES VARIABLES
+nb, i, res : Entier
+
+DEBUT ALGO
+    LIRE nb
+
+    POUR i VARIANT DE 1 A nb
+        res <- res + 1
+        AFFICHER i +
+    FIN POUR
+
+    AFFICHER = res
+
+FIN ALGO
