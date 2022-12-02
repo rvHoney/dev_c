@@ -5,8 +5,8 @@ La correction de ses exercices n'est __pas parfaite__  cependant les programmes 
 Les programmes ne sont __pas__ encore tous __commentés__ ni __optimisés__ (enfin ça, ça risque de ne jamais arriver).
 
 #### Les fichiers présents sont :
-1) Des fichiers ayant l'extension **C**.
-2) Des fichiers **compilés** ayant pour prefixe "__run__".
+1) Des fichiers ayant l'extension **C** ou **CPP**.
+2) Les algorithmes en Français des programmes ayant l'extension **TXT**.
 
 #### Accèder au Drive :
 Afin de les __télécharger__ ou de les __consulter__ d'une autre façon voici un **Google Drive**.
